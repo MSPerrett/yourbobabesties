@@ -423,17 +423,6 @@
     100% { opacity: 0; transform: translateY(80px) rotate(360deg); }
   }
 
-  /* ── REDUCED MOTION ──────────────────────────────────── */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-    .bubble, .sp { display: none; }
-  }
-
   /* ── LARGER SCREENS: a touch more breathing room ─────── */
   @media (min-width: 700px) {
     .page { max-width: 600px; }
@@ -561,7 +550,6 @@
 <script>
 // ── FLOATING BUBBLES ────────────────────────────────────
 (function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const wrap = document.getElementById('bgWrap');
   const colors = ['#FFD6E0','#E8D9F5','#B48FD4','#FF85A1','#FFF0F4'];
   // Fewer bubbles on small screens for smoother performance
@@ -583,7 +571,6 @@
 
 // ── SPARKLES ────────────────────────────────────────────
 (function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const field = document.getElementById('sparkleField');
   const symbols = ['✦','♥','✿','❋','✸','♡','❀'];
   const colors = ['#FF85A1','#B48FD4','#E8607A','#9370BE'];
@@ -629,7 +616,6 @@ function handleSubmit(e) {
 
 // ── CONFETTI ────────────────────────────────────────────
 function confettiBurst() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const colors = ['#FF85A1','#B48FD4','#FFD6E0','#E8607A','#9370BE','#FFF0F4'];
   for (let i = 0; i < 28; i++) {
     const el = document.createElement('div');
